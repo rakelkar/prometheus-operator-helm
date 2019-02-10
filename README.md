@@ -12,3 +12,8 @@ To use:
 helm repo add po https://rakelkar.github.io/prometheus-operator-helm/
 helm install po/prometheus-operator
 ```
+Note: If install fails, you need to purge custom resources manually between tries as Helm does not do this..
+
+```
+kubectl delete customresourcedefinitions prometheuses.monitoring.coreos.com prometheusrules.monitoring.coreos.com servicemonitors.monitoring.coreos.com alertmanagers.monitoring.coreos.com
+```
